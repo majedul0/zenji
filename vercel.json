@@ -1,0 +1,8 @@
+{
+  "installCommand": "npm install --prefix zenji",
+  "buildCommand": "npm run build --prefix zenji",
+  "outputDirectory": "zenji/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
