@@ -1,0 +1,213 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  padding: 18px 0;
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar--scrolled {
+  padding: 12px 0;
+  box-shadow: 0 12px 24px -16px rgba(0, 0, 0, 0.8);
+}
+
+.navbar__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.navbar__logo span {
+  color: var(--color-accent);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 36px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navbar__links a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.25s ease;
+}
+
+.navbar__links a:hover {
+  color: var(--color-ink);
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+.navbar__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar__more svg {
+  transition: transform 0.25s ease;
+}
+
+.navbar__more:hover svg {
+  transform: translateY(2px);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.navbar__search {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  padding: 0 4px 0 14px;
+  transition: border-color 0.25s ease;
+}
+
+.navbar__search:focus-within {
+  border-color: var(--color-accent);
+}
+
+.navbar__search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  padding: 9px 0;
+  width: 150px;
+}
+
+.navbar__search input::placeholder {
+  color: var(--color-ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.navbar__search button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  padding: 8px;
+}
+
+.navbar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.navbar__icon:hover {
+  color: var(--color-accent);
+}
+
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+}
+
+.navbar__burger span {
+  height: 2px;
+  width: 100%;
+  background: var(--color-ink);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.navbar__burger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar__burger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.navbar__mobile {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .navbar__links {
+    display: none;
+  }
+  .navbar__search {
+    display: none;
+  }
+  .navbar__burger {
+    display: flex;
+  }
+  .navbar__mobile {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(10, 10, 10, 0.98);
+    transition: max-height 0.35s ease;
+  }
+  .navbar__mobile.is-open {
+    max-height: 320px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .navbar__mobile a {
+    color: var(--color-ink);
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}

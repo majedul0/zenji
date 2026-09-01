@@ -1,0 +1,137 @@
+:root {
+  --font-display: 'Anton', 'Bebas Neue', 'Inter', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-jp: 'Noto Sans JP', var(--font-body);
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --color-bg: #0a0a0a;
+  --color-ink: #f5f3ef;
+  --color-ink-muted: #b9b6b2;
+  --color-ink-faint: #726f6c;
+  --color-accent: #e01123;
+  --color-accent-soft: #ff4d4d;
+  --color-accent-pink: #ff6a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  min-height: 100svh;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #07050c;
+}
+
+.background-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-field canvas {
+  pointer-events: none !important;
+}
+
+/* Shared section heading styles used across sections */
+.section-heading__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  color: var(--color-ink);
+  max-width: 720px;
+}
+
+.section-heading__sub {
+  margin-top: 20px;
+  max-width: 560px;
+  color: var(--color-ink-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.section-heading--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-heading--center h2 {
+  max-width: 780px;
+}
+
+/* Shared buttons — flat, square-cornered, black-on-white outline */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border-radius: 0;
+  border: 2px solid #08050c;
+  background: var(--color-ink);
+  color: #08050c;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #08050c;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+@media (max-width: 640px) {
+  .btn {
+    padding: 13px 24px;
+    font-size: 12px;
+  }
+}
